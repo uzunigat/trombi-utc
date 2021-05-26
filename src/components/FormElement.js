@@ -8,7 +8,7 @@ const FormElement = ({labelName}) => {
     return (
 
         <Form.Group controlId={labelName} className="mt-3">
-            <Form.Label > {labelName} </Form.Label>
+            <Form.Label> {labelName} </Form.Label>
             <Form.Control type="text" placeholder={labelName} />
           </Form.Group>
 
