@@ -2,11 +2,11 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Form} from "react-bootstrap";
  
-const FormSelect = ({elements}) => {
+const FormSelect = (props) => {
 
      let items = [];
 
-     elements.forEach(element => {
+     props.elements.forEach(element => {
        
       items.push(<option> {element} </option>)
 
@@ -14,9 +14,9 @@ const FormSelect = ({elements}) => {
     
     return (
 
-          <Form.Group controlId="role" className="mt-3">
+          <Form.Group {...props} controlId="role" className="mt-3">
             <Form.Label>Role</Form.Label>
-            <Form.Control as="select">
+            <Form.Control as="select" onChange={props.control}>
               {items}
             </Form.Control>
           </Form.Group>

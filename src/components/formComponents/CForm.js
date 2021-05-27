@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Form, Button} from "react-bootstrap";
-import { useHistory } from 'react-router-dom'
-
+import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
 
 // Import Components
 import FormElement from "./CFormElement";
@@ -14,6 +14,10 @@ const CForm = () => {
   const roleElements = ["Enseignant", "Chercheur", "Doctorat", "Etudiant"];
   const places = ["All", "Laboratoire Heudiasyc", "Laboratoire LMAC"];
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [role, setRole] = useState("Enseignant");
+  const [laboratoire, setLaboratoire] = useState("All");
   
     const search = () => {
 
@@ -21,14 +25,35 @@ const CForm = () => {
    
     };
 
+    function changeLastName(evt){
+
+      setLastName(evt.target.value);
+
+    }
+
+    function changeFirstName(evt){
+
+      setFirstName(evt.target.value);
+
+    }
+
+    function changeRole(evt){
+
+      console.log("change Role function!!!");
+      setRole(evt.target.value);
+
+    }
+
     return (
 
       <Form>
-            <FormElement labelName="Nom" />
+            <FormElement labelName="Nom" lastName={lastName} control={changeLastName.bind(this)}/>
 
-            <FormElement labelName="Prenom" />
+            <FormElement labelName="Prenom" firstName={firstName} control={() => changeFirstName.bind(this)}/>
 
-            <FormSelect elements={roleElements} />
+            <FormSelect elements={roleElements} control={() => changeRole.bind(this)}/>
+
+            {console.log(role)}
 
             <br /> <br />
 
