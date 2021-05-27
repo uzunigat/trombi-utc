@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Modal, Col, Row, Image, Container ,Form} from "react-bootstrap";
+import { Button, Modal, Col, Row, Image, Container } from "react-bootstrap";
 
 
 const ModalUserInf = (props) => {
@@ -16,7 +16,7 @@ const ModalUserInf = (props) => {
         backdrop="static"
         centered
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter" >
             <div className="text-center">Informations generales</div>
           </Modal.Title>

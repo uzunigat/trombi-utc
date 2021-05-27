@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import userData from './userDataExample';
-import { Button,Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import CModalUserInfo from './components/Modals/CModal-Ind-Inf';
 import CModalQR from './components/Modals/qr-modal';
 
