@@ -1,7 +1,8 @@
 // Import Components
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from 'react';
-import {Spinner} from "react-bootstrap";
+import {Spinner, Container, Row, Col} from "react-bootstrap";
+import CUserCard from "./CUserCard";
 
 function CListPage() {
 
@@ -14,7 +15,7 @@ function CListPage() {
 
     elements.forEach((element, index) => {
     
-      users.push(element.nomp);
+      users.push(element);
 
     });
 
@@ -58,11 +59,14 @@ function CListPage() {
         {/* When is loading we show the loading icon */}
         {!loading ? 
         
-        <ul>
-        {elements.map(element => (
-          <li>{element}</li>
-        ))}
-      </ul>
+        <Container>
+
+          <Row>
+          {elements.map(element => (
+            <Col> <CUserCard className="font-weight-bold" userData={element}/></Col>
+          ))}
+          </Row>
+        </Container>
         
         : <Spinner animation="border" variant="warning" />} 
 
