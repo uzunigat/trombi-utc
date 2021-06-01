@@ -19,6 +19,7 @@ const CListPage = (props) => {
     elements.forEach((element, index) => {
     
       users.push(element);
+      console.log(element);
 
     });
 
