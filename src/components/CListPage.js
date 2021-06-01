@@ -24,7 +24,10 @@ const CListPage = (props) => {
       elements =filterLabLmac(elements)
     }
 
-    elements=filterByType(elements,userInput.role);
+    if("All"!=userInput.role){
+      elements=filterByType(elements,userInput.role);
+
+    }
     elements.forEach((element, index) => {
     
       users.push(element);
