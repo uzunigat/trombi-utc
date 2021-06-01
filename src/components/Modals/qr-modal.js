@@ -1,6 +1,6 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Modal,Container,Button} from "react-bootstrap";
+import {Modal,Container,Button,Row,Col} from "react-bootstrap";
 var QRCode = require('qrcode.react');
 
 const QrModal = (props)=>{
@@ -21,7 +21,11 @@ const QrModal = (props)=>{
       </Modal.Header>
       <Modal.Body>
       <Container>
-      <QRCode value={props.qrValue} includeMargin={true}/>
+      <Row>
+        <Col align="center">
+          <QRCode value={props.qrValue} size={300} includeMargin={true}/>
+      </Col>
+      </Row>
       </Container>
       </Modal.Body>
       <Modal.Footer>

@@ -24,7 +24,7 @@ const ModalUserInf = (props) => {
         <Modal.Body className="show-grid">
           <Container>
             <Row>
-              <Col>
+              <Col align="center">
                 <Image
                   src={`data:image/jpg;base64,${props.userInfo.photo}`}
                   roundedCircle
@@ -32,7 +32,7 @@ const ModalUserInf = (props) => {
               </Col>
               <Col>
               <Container>
-              <Row><Col >Email</Col><Col align="center">{props.userInfo.mail}</Col></Row>
+              <Row><Col >Email</Col><Col  >{props.userInfo.mail}</Col></Row>
               <Row><Col >Nom ,Prenom</Col><Col align="center">{props.userInfo.nomp}</Col></Row>
               <Row><Col >Structure</Col><Col align="center">{props.userInfo.structureLibelle}</Col></Row>
               <Row><Col >Laboratoire structure</Col><Col align="center">{props.userInfo.structLibelleFils}</Col></Row>
