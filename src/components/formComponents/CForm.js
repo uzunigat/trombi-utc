@@ -11,7 +11,7 @@ const CForm = () => {
   let items = [];
 
   const history = useHistory();
-  const roleElements = ["Enseignant", "Chercheur", "Doctorat", "Etudiant"];
+  const roleElements = ["Enseignant", "Chercheur", "Doctorant"];
   const places = ["All", "Laboratoire Heudiasyc", "Laboratoire LMAC"];
 
   const [firstName, setFirstName] = useState("");

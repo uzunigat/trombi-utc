@@ -13,9 +13,18 @@ const CListPage = (props) => {
   const [elements, setElements] = useState(null);
   let users = [];
 
-  // This function fill all the users state
-  function fillUsers(elements) {
+  // This function fill all the users state (receive json array)
+  function fillUsers(elements, userInput) {
 
+
+    if(userInput.laboratoire ==="Laboratoire Heudiasyc" ){
+      elements = filterLabLhy(elements)
+    }
+    if(userInput.laboratoire ==="Laboratoire LMAC" ){
+      elements =filterLabLmac(elements)
+    }
+
+    elements=filterByType(elements,userInput.role);
     elements.forEach((element, index) => {
     
       users.push(element);
@@ -32,6 +41,7 @@ const CListPage = (props) => {
 
     let url = 'https://webservices.utc.fr/api/v1/trombi/gi';
 
+
     if(data.firstName != "" && data.lastName != "") {
       url += "?name="+data.lastName.toLowerCase() + "&firstname=" + data.firstName.toLowerCase();  
     } else if (data.firstName != "" && data.lastName === ""){
@@ -44,11 +54,44 @@ const CListPage = (props) => {
 
   }
 
+  function filterLabLhy (users){
+    let correctRegex = new RegExp('HEUDIASYC','i');
+    const usersLab= users.filter(({fonction}) => correctRegex.test(fonction));
+    console.log(usersLab)
+    return usersLab;
+  }
+
+  function filterByType (users,typeUser){
+    let correctRegex;
+    if(typeUser ==="Enseignant"){
+      let newType = typeUser+"|"+"Professeur"
+     correctRegex = new RegExp(newType,'i');
+      
+    }else{
+
+       correctRegex = new RegExp(typeUser,'i');
+    }
+    const userType= users.filter(({fonction}) => correctRegex.test(fonction));
+    console.log(userType)
+    return userType;
+  }
+
+  function filterLabLmac (users){
+    const correctRegex = new RegExp('LMAC','i');
+
+    const usersLab = users.filter(({fonction}) => correctRegex.test(fonction));
+    console.log(usersLab)
+
+    return usersLab;
+
+
+  }
+
   // Call Before Mount
   useEffect(() => {
 
       let url = makeURL(location.state);
-
+      console.log(location.state)
       let username = 'wsuser';
       let password = 'v3Kenobi!';
 
@@ -63,7 +106,7 @@ const CListPage = (props) => {
         
         response.json().then(function(json){
 
-          fillUsers(json);
+          fillUsers(json,location.state);
 
         }).catch (e => {console.log(e)})
 
