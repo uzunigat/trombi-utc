@@ -4,8 +4,6 @@ import { Button, Modal, Col, Row, Image, Container } from "react-bootstrap";
 
 
 const ModalUserInf = (props) => {
-  // const [modalEmailShow, setModalEmailShow] = React.useState(false);
-  // const [modalPhoneShow, setModalPhoneShow] = React.useState(false);
 
   return (
     <>
@@ -24,36 +22,39 @@ const ModalUserInf = (props) => {
         <Modal.Body className="show-grid">
           <Container>
             <Row>
-              <Col>
+              <Col className="my-auto" lg="4">
                 <Image
                   src={`data:image/jpg;base64,${props.userInfo.photo}`}
+                  fluid 
                   roundedCircle
                 />
               </Col>
               <Col>
               <Container>
-              <Row><Col >Email</Col><Col align="center">{props.userInfo.mail}</Col></Row>
-              <Row><Col >Nom ,Prenom</Col><Col align="center">{props.userInfo.nomp}</Col></Row>
-              <Row><Col >Structure</Col><Col align="center">{props.userInfo.structureLibelle}</Col></Row>
-              <Row><Col >Laboratoire structure</Col><Col align="center">{props.userInfo.structLibelleFils}</Col></Row>
-              <Row><Col >Numb. Telephone post 1</Col><Col align="center">{props.userInfo.telPoste1}</Col></Row>
-              <Row><Col >Numb. Telephone post 1</Col><Col align="center">{props.userInfo.telPoste2}</Col></Row>
-              <Row><Col >Mamada foto</Col><Col align="center">{props.userInfo.trombiDiffuserPhoto$f}</Col></Row>
-              <Row><Col >Bureau </Col><Col align="center">{props.userInfo.loca}</Col></Row>
-              <Row><Col >Login</Col><Col align="center">{props.userInfo.login}</Col></Row>
-              <Row><Col >Branche</Col><Col align="center">{props.userInfo.structureAbr}</Col></Row>
-              <Row><Col >Bureau laboratoire</Col><Col align="center">{props.userInfo.structAbrFils}</Col></Row>
-              <Row><Col >Fonction</Col><Col align="center">{props.userInfo.fonction}</Col></Row>
+                <Row className="mt-1"><Col >Email: </Col><Col >{props.userInfo.mail}</Col></Row>
+                <Row className="mt-1"><Col >NOM , Prenom: </Col><Col >{props.userInfo.nomp}</Col></Row>
+                <hr />
+                <Row className="mt-1"><Col >Structure: </Col><Col >{props.userInfo.structureLibelle}</Col></Row>
+                <Row className="mt-1"><Col >Laboratoire structure: </Col><Col >{props.userInfo.structLibelleFils}</Col></Row>
+                <hr />
+                <Row className="mt-1"><Col >Numb. Telephone post 1: </Col><Col >{props.userInfo.telPoste1}</Col></Row>
+                <Row className="mt-1"><Col >Numb. Telephone post 2: </Col><Col >{props.userInfo.telPoste2}</Col></Row>
+                <hr />
+                <Row className="mt-1"><Col >Bureau:  </Col><Col >{props.userInfo.loca}</Col></Row>
+                <Row className="mt-1"><Col >Login: </Col><Col >{props.userInfo.login}</Col></Row>
+                <Row className="mt-1"><Col >Branche: </Col><Col >{props.userInfo.structureAbr}</Col></Row>
+                <Row className="mt-1"><Col >Bureau laboratoire: </Col><Col >{props.userInfo.structAbrFils}</Col></Row>
+                <Row className="mt-1"><Col >Fonction: </Col><Col >{props.userInfo.fonction}</Col></Row>
               </Container>
 
                 <Row>
-                  <Col>
+                  <Col className="mt-5 text-center">
                     <Button variant="dark" onClick={() =>{
                       props.onShowModalQrPhone()
                       props.onHide()
                     }}> Generate QR Phone</Button>
                   </Col>
-                  <Col>
+                  <Col  className="mt-5 text-center">
                     <Button variant="dark" onClick={() =>{
                       props.onShowQrEmail()
                       props.onHide()
