@@ -10,7 +10,7 @@ const CHeader = () => {
 
     return (
 
-        <Navbar bg="dark" variant="dark">
+        <Navbar className="bg-warning" >
         
         <Link to="/">
           <Navbar.Brand href="#">
